@@ -1,9 +1,20 @@
 package br.com.casacodigo.loja.models;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String titulo;
     private String descricao;
     private int paginas;
+
+    @ElementCollection
+    private List<Preco> precos;
 
 
     public Produto() {
@@ -13,6 +24,15 @@ public class Produto {
         this.titulo = titulo;
         this.descricao = descricao;
         this.paginas = paginas;
+    }
+
+
+    public List<Preco> getPrecos() {
+        return precos;
+    }
+
+    public void setPrecos(List<Preco> precos) {
+        this.precos = precos;
     }
 
     public String getTitulo() {
@@ -38,6 +58,15 @@ public class Produto {
     public void setPaginas(int paginas) {
         this.paginas = paginas;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     @Override
     public String toString() {

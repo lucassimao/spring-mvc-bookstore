@@ -1,13 +1,14 @@
 package br.com.casacodigo.loja.conf;
 
 import br.com.casacodigo.loja.controllers.HomeController;
+import br.com.casacodigo.loja.daos.ProdutoDAO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {HomeController.class})
+@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class})
 public class AppWebConfiguration {
 
     @Bean

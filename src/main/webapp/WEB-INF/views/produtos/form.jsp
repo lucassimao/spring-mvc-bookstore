@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lsimaocosta
@@ -24,6 +25,17 @@
         <label>Páginas</label>
         <input name="paginas" type="text">
     </div>
+
+
+    <c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
+        <div>
+            <label>${tipoPreco}</label>
+            <input name="precos[${status.index}].valor" type="text">
+            <input name="precos[${status.index}].tipo" type="hidden" value="${tipoPreco}">
+        </div>
+    </c:forEach>
+
+
     <button type="submit">Cadastrar</button>
 </form>
 
